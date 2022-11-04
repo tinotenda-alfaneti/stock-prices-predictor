@@ -13,11 +13,11 @@
     <br />
     <a href="https://github.com/tinotenda-alfaneti/stock-prices-predictor/">View Demo</a>
     ·
-    <a href="https://github.com/tinotenda-alfaneti/stock-prices-predictor/">Report Bug</a>
+    <a href="https://github.com/tinotenda-alfaneti/stock-prices-predictor/issues/new">Report Bug</a>
     ·
-    <a href="https://github.com/tinotenda-alfaneti/stock-prices-predictor/">Request Feature</a>
+    <a href="https://github.com/tinotenda-alfaneti/stock-prices-predictor/issues">Request Feature</a>
     ·
-    <a href="https://github.com/tinotenda-alfaneti/stock-prices-predictor/">Send a Pull Request</a>
+    <a href="https://github.com/tinotenda-alfaneti/stock-prices-predictor/pulls">Send a Pull Request</a>
   </p>
 </p>
 

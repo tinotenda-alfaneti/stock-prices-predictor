@@ -24,7 +24,7 @@
 <!-- ABOUT THE PROJECT -->
 ## ABOUT THE PROJECT
 
-This is a stock prices predictor app build in python using recurrent neural network, yahoo finance api, streamlit, etc
+This is a stock prices predictor app build in python using recurrent neural network, yahoo finance api, streamlit, pandas, etc. Data for the stocks is read into a Data frame from yahoo finance using the pandas_datareader module.
 
 DISCLAIMER: This is not investing advice. I am not a proffesional who is qualified in giving any financial advice. This a preoject purely about Machine Learning using Financial data.
 

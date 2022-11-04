@@ -29,10 +29,12 @@ This is a stock prices predictor app build in python using recurrent neural netw
 DISCLAIMER: This is not investing advice. I am not a proffesional who is qualified in giving any financial advice. This a preoject purely about Machine Learning using Financial data.
 
 ### BUILT WITH
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+Here are the main modules and tool I used for the project
 * [Tensorflow](https://github.com/tensorflow)
 * [Keras](https://github.com/keras-team/keras)
 * [Sklearn](https://github.com/topics/sklearn)
+* [Google Colab](https://github.com/googlecolab)
+* [Streamlit](https://github.com/streamlit)
 
 
 
@@ -70,7 +72,6 @@ Tinotenda Rodney Alfaneti - [@Linkedin](https://www.linkedin.com/in/tinotenda-ro
 <!-- ACKNOWLEDGEMENTS -->
 ## ACKNOWLEDGEMENTS
 * [NeuralNine](https://github.com/NeuralNine)
-* [Streamlit](https://github.com/streamlit)
 
 
 

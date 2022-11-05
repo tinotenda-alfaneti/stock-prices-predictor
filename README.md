@@ -11,7 +11,7 @@
     This is a stock prices predictor app build in python using recurrent neural network, yahoo finance api, streamlit, and other machine learning models.
     <br />
     <br />
-    <a href="https://github.com/tinotenda-alfaneti/stock-prices-predictor/">View Demo</a>
+    <a href="https://github.com/tinotenda-alfaneti/stock-prices-predictor/prediction_results.png">View Demo</a>
     ·
     <a href="https://github.com/tinotenda-alfaneti/stock-prices-predictor/issues/new">Report Bug</a>
     ·

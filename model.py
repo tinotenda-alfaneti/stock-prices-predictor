@@ -9,9 +9,9 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, LSTM
 
 #Loading Data
-company = 'TSLA'
+company = 'AAPL'
 
-start = dt.datetime(2012,1,1)
+start = dt.datetime(2010,1,1)
 end = dt.datetime(2020,1,1)
 
 data = web.DataReader(company, 'yahoo', start, end)
@@ -21,7 +21,7 @@ scaler = MinMaxScaler(feature_range=(0,1)) #change all the values to be between 
 scaled_data = scaler.fit_transform(data['Close'].values.reshape(-1,1)) #reshape the data to be 2D
 #only predict the closing price
 
-prediction_days = 30 #how many days we want to use to predict the next day
+prediction_days = 60 #how many days we want to use to predict the next day
 
 
 #training data
@@ -65,7 +65,7 @@ model.fit(x_train, y_train, epochs=25, batch_size=32)
 #Testing the model
 #Load the test data - how it would perfom on past data
 test_start = dt.datetime(2020,1,1)
-test_end = dt.datetime(2022,1,1)
+test_end = dt.datetime(2023,1,1)
 
 #load the data
 test_data = web.DataReader(company, 'yahoo', test_start, test_end)
@@ -83,30 +83,6 @@ model_inputs = model_inputs.reshape(-1,1)
 #scale the data
 model_inputs = scaler.transform(model_inputs)
 
-#make predictions on test data
-x_test = []
-
-for x in range(prediction_days, len(model_inputs)):
-    x_test.append(model_inputs[x-prediction_days:x, 0])
-
-#convert to numpy array
-x_test = np.array(x_test)
-x_test = np.reshape(x_test, (x_test.shape[0], x_test.shape[1], 1))
-
-#Get the predicted prices
-predicted_prices = model.predict(x_test)
-predicted_prices = scaler.inverse_transform(predicted_prices)
-
-#plot the predictions
-plt.plot(actual_prices, color="black", label=f"Actual {company} Price")
-plt.plot(predicted_prices, color="green", label=f"Predicted {company} Price")
-plt.title(f"{company} Share Price")
-plt.xlabel('Time')
-plt.ylabel(f"{company} Share Price")
-plt.legend()
-plt.show()
-
-
 #Predict Next Day
 real_data = [model_inputs[len(model_inputs) + 1 - prediction_days:len(model_inputs+1), 0]]
 real_data = np.array(real_data)
@@ -118,4 +94,5 @@ prediction = scaler.inverse_transform(prediction)
 print(f"Prediction: {prediction}")
 
 #TODO: Predict the next 30 days
+
 

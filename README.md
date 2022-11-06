@@ -26,6 +26,8 @@
 
 This is a stock prices predictor app build in python using recurrent neural network, yahoo finance api, streamlit, pandas, etc. Data for the stocks is read into a Data frame from yahoo finance using the pandas_datareader module. The variety of the recurrent neural networks used for this project are LSTM(Long Short-Term Memory networks) which are capable of learning long-term dependencies in sequential prediction problems like the stock prices prediction. The choice of using LSTM instead of RNN came because according to [GeeksforGeeks](https://www.geeksforgeeks.org/understanding-of-lstm-networks/) RNN fails to store information for a longer period of time. 
 
+[Click Here to View Project Website](https://tinotenda-alfaneti-stock-prices-predictor-webapp-nz709p.streamlit.app/)
+
 DISCLAIMER: This is not investing advice. I am not a proffesional who is qualified in giving any financial advice. This a preoject purely about Machine Learning using Financial data.
 
 ### BUILT WITH

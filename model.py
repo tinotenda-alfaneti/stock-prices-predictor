@@ -60,15 +60,18 @@ def predict_next_day(selected_stock, data):
     model = Sequential()
     train_model(model, 60, selected_stock)
 
-    #Load the test data 
+    #Testing the model
+    #Load the test data - how it would perfom on past data
     test_start = dt.datetime(2020,1,1)
     test_end = dt.datetime.now()
     scaler = MinMaxScaler(feature_range=(0,1)) #change all the values to be between 0 and 1
-    
+    scaled_data = scaler.fit_transform(data['Close'].values.reshape(-1,1)) #reshape the data to be 2D
+    #only predict the closing price
     prediction_days = 60 #how many days we want to use to predict the next day
 
     #load the data
     test_data = web.DataReader(selected_stock, 'yahoo', test_start, test_end)
+    actual_prices = test_data['Close'].values
 
     #Get the predicted prices
     total_dataset = pd.concat((data['Close'], test_data['Close']), axis=0)
@@ -82,6 +85,20 @@ def predict_next_day(selected_stock, data):
     #scale the data
     model_inputs = scaler.transform(model_inputs)
 
+    #make predictions on test data
+    x_test = []
+
+    for x in range(prediction_days, len(model_inputs)):
+        x_test.append(model_inputs[x-prediction_days:x, 0])
+
+    #convert to numpy array
+    x_test = np.array(x_test)
+    x_test = np.reshape(x_test, (x_test.shape[0], x_test.shape[1], 1))
+
+    #Get the predicted prices
+    predicted_prices = model.predict(x_test)
+    predicted_prices = scaler.inverse_transform(predicted_prices)
+
     #Predict Next Day
     real_data = [model_inputs[len(model_inputs) + 1 - prediction_days:len(model_inputs+1), 0]]
     real_data = np.array(real_data)
@@ -90,4 +107,5 @@ def predict_next_day(selected_stock, data):
     #Get the predicted price
     prediction = model.predict(real_data)
     prediction = scaler.inverse_transform(prediction)
+
     return prediction[0][0]

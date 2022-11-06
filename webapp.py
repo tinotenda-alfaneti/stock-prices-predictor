@@ -17,12 +17,10 @@ def load_data(ticker):
 
 data = load_data(selected_stock)
 
-st.subheader('PAST DATA CHAT')
-
 def plot_raw_data():
     fig = go.Figure()
     fig.add_trace(go.Candlestick(x=data['Date'], open=data['Open'], high=data["High"], low=data["Low"], close=data["Close"]))
-    fig.layout.update(title_text='CANDLESTICK CHAT', xaxis_rangeslider_visible=True, template="plotly_dark")
+    fig.layout.update(title_text='PAST DATA CANDLESTICK CHAT', xaxis_rangeslider_visible=True, template="plotly_dark")
     fig.update_yaxes(type="log")
     
     st.plotly_chart(fig)

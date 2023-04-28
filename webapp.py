@@ -1,17 +1,19 @@
 import streamlit as st
-import pandas_datareader as web
+# import pandas_datareader as web
 import matplotlib.pyplot as plt
 from plotly import graph_objs as go
 from datetime import datetime
 from model import predict_next_day
 
+import yfinance as web
+
 st.title('Atarist Stock Price Prediction')
-stocks = ('AAPL', 'GOOG', 'MSFT', 'AMZN', 'TSLA', 'JPM', 'META')
+stocks = ('AAPL.AX', 'GOOG.AX', 'MSFT.AX', 'AMZN.AX', 'TSLA.AX', 'JPM.AX', 'META.AX')
 selected_stock = st.selectbox('SELECT STOCK', stocks)
 
 @st.cache(persist=True)
 def load_data(ticker):
-    data = web.DataReader(ticker, data_source='yahoo', start='2010-01-01', end='2022-01-01')
+    data = web.download(ticker, start='2010-01-01', end='2023-01-01')
     data.reset_index(inplace=True)
     return data
 
